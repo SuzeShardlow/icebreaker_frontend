@@ -1,0 +1,16 @@
+<h1>Events</h1>
+
+<select ng-model="vm.groupType" ng-options="group.url as group.name for group in vm.meetUpGroups"></select>
+
+<ul class="event-list">
+  <li ng-repeat="event in vm.meetups">
+    <p>{{ event.eventid }}</p>
+    <p>{{ event.name }}</p>
+    <p>{{ event.status }}</p>
+    <p>{{ event.time }}</p>
+    <p>{{ event.duration }}</p>
+    <p>{{ event.link }}</p>
+    <p>{{ event.description }}</p>
+    <button ng-click="vm.addGathering(event)" class="btn btn-success">Join Group</button>
+  </li>
+</ul>

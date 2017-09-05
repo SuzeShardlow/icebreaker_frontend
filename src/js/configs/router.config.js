@@ -20,9 +20,19 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   .state('login', {
     url: '/login',
     templateUrl: '/js/views/authentications/login.html',
-    controllguler: 'LoginCtrl',
+    controller: 'LoginCtrl',
     controllerAs: 'login'
-  });
+  })
+  .state('events', {
+    url: '/events',
+    templateUrl: '/js/views/events/index.html',
+    controller: 'EventsIndexCtrl',
+    controllerAs: 'vm'
+  })
+
+
+
+  ;
 
   $urlRouterProvider.otherwise('/');
 }
