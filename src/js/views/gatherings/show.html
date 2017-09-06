@@ -1,0 +1,17 @@
+<h1>Gathering</h1>
+
+<h2>{{ vm.gathering.name }}</h2>
+<h4>{{ vm.gathering.groupname }}</h4>
+
+<h3>{{ vm.gathering.time }}, {{ vm.gathering.duration }}hrs</h3>
+
+<p>{{ vm.gathering.meetupvenuename }}</p>
+<p>{{ vm.gathering.meetupvenueaddress }}</p>
+
+
+<h3>Group Members</h3>
+<ul>
+  <li ng-repeat="user in vm.gathering.users">
+    {{ user.fullname }}
+  </li>
+</ul>

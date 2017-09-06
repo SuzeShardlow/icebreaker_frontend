@@ -29,6 +29,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'EventsIndexCtrl',
     controllerAs: 'vm'
   })
+  .state('gatheringsShow', {
+    url: '/gatherings/:id',
+    templateUrl: '/js/views/gatherings/show.html',
+    controller: 'GatheringsShowCtrl',
+    controllerAs: 'vm'
+  })
 
 
 
