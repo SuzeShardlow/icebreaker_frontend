@@ -31,7 +31,7 @@
               <a ui-sref="events">Events</a>
             </li>
             <li>
-              <p class="navbar-text">Hello, {{ main.user.username }}</p>
+              <p ui-sref="usersShow({ id: main.user.id })" class="navbar-text">Hello, {{ main.user.firstname }}!</p>
             </li>
             <li ng-hide="main.user">
               <a ui-sref="register">Register</a>
@@ -40,7 +40,7 @@
               <a ui-sref="login">Login</a>
             </li>
             <li ng-show="main.user">
-              <a ng-click="main.logout()">Not {{ main.user.username }}? Log out</a>
+              <a ng-click="main.logout()">Not {{ main.user.firstname }}? Log out</a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

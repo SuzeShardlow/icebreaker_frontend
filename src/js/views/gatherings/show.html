@@ -3,15 +3,35 @@
 <h2>{{ vm.gathering.name }}</h2>
 <h4>{{ vm.gathering.groupname }}</h4>
 
-<h3>{{ vm.gathering.time }}, {{ vm.gathering.duration }}hrs</h3>
+<h3><a href="{{vm.gathering.link}}" target="_blank">Ensure you are registered to attend this Meetup!</a></h3>
+
+<h3>{{ vm.gathering.time }}, {{ vm.gathering.duration }}h</h3>
 
 <p>{{ vm.gathering.meetupvenuename }}</p>
 <p>{{ vm.gathering.meetupvenueaddress }}</p>
+<p>Latitude: {{ vm.gathering.meetupvenuelat }}</p>
+<p>Longitude: {{ vm.gathering.meetupvenuelong }}</p>
 
 
 <h3>Group Members</h3>
 <ul>
   <li ng-repeat="user in vm.gathering.users">
-    {{ user.fullname }}
+    {{ user.fullname }} <button class="btn btn-danger" ng-show="user.id === main.user.id" ng-click="vm.removeUserFromGathering()">REMOVE</button>
+  </li>
+</ul>
+
+<h3>Comments</h3>
+
+<h4 ng-click="vm.hideCommentForm = !vm.hideCommentForm">Add A Comment</h4>
+
+<form ng-show="vm.hideCommentForm" ng-submit="vm.addComment()">
+  <input type="text" ng-model="vm.comment.body">
+  <button>Add Comment</button>
+</form>
+
+<ul>
+  <li ng-repeat="comment in vm.gathering.comments">
+    {{ comment.body }} <b>{{ comment.user.username }}</b>
+    <button ng-click="vm.deleteComment(comment)" ng-show="comment.user.id === main.user.id" class="btn btn-danger">Delete</button>
   </li>
 </ul>

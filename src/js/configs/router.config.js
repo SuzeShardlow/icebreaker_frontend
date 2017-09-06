@@ -35,6 +35,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'GatheringsShowCtrl',
     controllerAs: 'vm'
   })
+  .state('usersShow', {
+    url: '/users/:id',
+    templateUrl: '/js/views/users/show.html',
+    controller: 'UsersShowCtrl',
+    controllerAs: 'vm'
+  })
 
 
 

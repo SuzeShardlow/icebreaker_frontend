@@ -36,7 +36,7 @@ function EventsIndexCtrl($http, $scope, $state, Gathering) {
       status: event.status,
       link: event.link,
       meetupvenuename: event.venue.name,
-      meetupvenueaddress: event.venue.address,
+      meetupvenueaddress: event.venue.address_1,
       meetupvenuelat: event.venue.lat,
       meetupvenuelong: event.venue.lon
     };

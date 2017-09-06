@@ -1,17 +1,16 @@
 <h1>User</h1>
 
-<h2>{{ vm.gathering.name }}</h2>
-<h4>{{ vm.gathering.groupname }}</h4>
+<h2>{{ vm.user.fullname }}</h2>
+<h4>{{ vm.user.jobtitle }}</h4>
 
-<h3>{{ vm.gathering.time }}, {{ vm.gathering.duration }}hrs</h3>
+<h4><a href="{{ vm.user.linkedinurl }}" target="_blank">LinkedIn profile</a></h4>
 
-<p>{{ vm.gathering.meetupvenuename }}</p>
-<p>{{ vm.gathering.meetupvenueaddress }}</p>
+<p>{{ vm.user.bio }}</p>
 
 
-<h3>Group Members</h3>
+<h3>Gatherings</h3>
 <ul>
-  <li ng-repeat="user in vm.gathering.users">
-    {{ user.fullname }}
+  <li ng-repeat="gathering in vm.user.gatherings">
+    <a ui-sref="gatheringsShow({ id: gathering.id })">{{ gathering.name }}</a> ({{ gathering.groupname }})
   </li>
 </ul>
