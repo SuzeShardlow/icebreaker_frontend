@@ -1,37 +1,83 @@
-<h1>Gathering</h1>
+<div class="container">
 
-<h2>{{ vm.gathering.name }}</h2>
-<h4>{{ vm.gathering.groupname }}</h4>
-
-<h3><a href="{{vm.gathering.link}}" target="_blank">Ensure you are registered to attend this Meetup!</a></h3>
-
-<h3>{{ vm.gathering.time }}, {{ vm.gathering.duration }}h</h3>
-
-<p>{{ vm.gathering.meetupvenuename }}</p>
-<p>{{ vm.gathering.meetupvenueaddress }}</p>
-<p>Latitude: {{ vm.gathering.meetupvenuelat }}</p>
-<p>Longitude: {{ vm.gathering.meetupvenuelong }}</p>
+  <h1><i class="fa fa-users" aria-hidden="true"></i> Gathering</h1>
 
 
-<h3>Group Members</h3>
-<ul>
-  <li ng-repeat="user in vm.gathering.users">
-    {{ user.fullname }} <button class="btn btn-danger" ng-show="user.id === main.user.id" ng-click="vm.removeUserFromGathering()">REMOVE</button>
-  </li>
-</ul>
+  <div class="panel panel-info">
+    <div class="panel-heading">You are attending a gathering ahead of:</div>
 
-<h3>Comments</h3>
+    <div class="panel-body">
 
-<h4 ng-click="vm.hideCommentForm = !vm.hideCommentForm">Add A Comment</h4>
 
-<form ng-show="vm.hideCommentForm" ng-submit="vm.addComment()">
-  <input type="text" ng-model="vm.comment.body">
-  <button>Add Comment</button>
-</form>
+      <h2>{{ vm.gathering.name }}</h2>
+      <h4>{{ vm.gathering.groupname }} <i class="fa fa-meetup" aria-hidden="true"></i> <a href="{{vm.gathering.link}}" target="_blank">Ensure you are registered to attend this Meetup!</a></h4>
 
-<ul>
-  <li ng-repeat="comment in vm.gathering.comments">
-    {{ comment.body }} <b>{{ comment.user.username }}</b>
-    <button ng-click="vm.deleteComment(comment)" ng-show="comment.user.id === main.user.id" class="btn btn-danger">Delete</button>
-  </li>
-</ul>
+      <h3><i class="fa fa-calendar" aria-hidden="true"></i> {{ vm.gathering.time | amUtc | amDateFormat:'dddd Do MMMM YYYY, HH:mm' }}</h3>
+
+
+
+      <h4><i class="fa fa-map-pin" aria-hidden="true"></i> {{ vm.gathering.meetupvenuename }}, {{ vm.gathering.meetupvenueaddress }}</h4>
+      <!-- <p>Latitude: {{ vm.gathering.meetupvenuelat }}</p>
+      <p>Longitude: {{ vm.gathering.meetupvenuelong }}</p> -->
+    </div>
+  </div>
+
+
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-4">
+
+        <h3>Attending this gathering</h3>
+        <ul>
+          <li class="member" ng-repeat="user in vm.gathering.users">
+            <a ui-sref="usersShow({ id: user.id })">{{ user.fullname }}</a> <button class="btn btn-xs btn-danger" ng-show="user.id === main.user.id" ng-click="vm.removeUserFromGathering()">Cancel Attendance</button>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-lg-8">
+
+        <h3>Comments</h3>
+
+        <h4 ng-click="vm.hideCommentForm = !vm.hideCommentForm">Add A Comment</h4>
+
+        <form ng-show="vm.hideCommentForm" ng-submit="vm.addComment()">
+          <!-- <input type="text" ng-model="vm.comment.body"> -->
+          <textarea ng-model="vm.comment.body" name="name" rows="5" cols="40"></textarea>
+          <button class="btn btn-success btn-sm">Add Comment</button>
+        </form>
+
+        <ul>
+          <li class="comment" ng-repeat="comment in vm.gathering.comments" ng-class="($even ? 'even' : 'odd')">
+
+            <div class="media">
+              <a class="pull-left" ui-sref="usersShow({ id: comment.user.id })">
+                <img class="media-object img-circle pull-left" src="{{ comment.user.image }}" height="50" width="50">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading">{{ comment.user.firstname }} {{ comment.user.lastname }}, {{ comment.user.jobtitle }}</h4>
+                <i class="fa fa-quote-left" aria-hidden="true"></i> {{ comment.body }} <i class="fa fa-quote-right" aria-hidden="true"></i>
+                <button ng-click="vm.deleteComment(comment)" ng-show="comment.user.id === main.user.id" class="btn btn-xs btn-danger">Delete</button><br><br>
+
+              </div>
+            </div>
+
+          </li>
+
+
+          <!-- <li class="comment" ng-repeat="comment in vm.gathering.comments">
+          {{ comment.body }} <b>{{ comment.user.username }}</b>
+          <button ng-click="vm.deleteComment(comment)" ng-show="comment.user.id === main.user.id" class="btn btn-danger">Delete</button>
+        </li> -->
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+</div>

@@ -6,20 +6,36 @@ EventsIndexCtrl.$inject = ['$http', '$scope', '$state', 'Gathering'];
 function EventsIndexCtrl($http, $scope, $state, Gathering) {
   const vm = this;
 
+  const meetupImages = {
+    'founderscoders': 'https://secure.meetupstatic.com/photos/event/a/6/1/b/highres_460422523.jpeg',
+    'london-javascript-community': 'https://secure.meetupstatic.com/photos/event/3/8/4/5/highres_435914405.jpeg',
+    'ladies-of-code-uk': 'https://secure.meetupstatic.com/photos/event/9/1/e/4/highres_446017348.jpeg',
+    'londonappbrewery': 'https://secure.meetupstatic.com/photos/event/8/3/3/2/highres_444873586.jpeg',
+    'women-who-code-london': 'https://secure.meetupstatic.com/photos/event/b/8/c/a/highres_431687306.jpeg'
+  };
+
   vm.groupType    = 'founderscoders';
   vm.gatherings   = Gathering.query();
   vm.addGathering = addGathering;
   vm.createOrJoin = createOrJoin;
+  vm.meetups      = [];
+  vm.newMeetups   = [];
 
   $http
   .get('http://localhost:3000/api/meetupgroups')
   .then(res => vm.meetUpGroups = res.data);
 
-
   function getEventData() {
     $http
     .get(`http://localhost:3000/api/events/${vm.groupType}`)
-    .then(res => vm.meetups = res.data);
+    .then(res => {
+      vm.meetups = res.data;
+      console.log(vm.meetups);
+      vm.meetups.forEach(meetup =>  {
+        meetup.image = meetupImages[`${vm.groupType}`];
+        meetup.description     = meetup.description.replace(/(<([^>]+)>)/ig, '').replace('&amp;', '&');
+      });
+    });
   }
 
   function createOrJoin(event) {

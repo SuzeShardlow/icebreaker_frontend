@@ -1,16 +1,33 @@
-<h1>User</h1>
+<div class="container">
 
-<h2>{{ vm.user.fullname }}</h2>
-<h4>{{ vm.user.jobtitle }}</h4>
+  <h1><i class="fa fa-user-circle-o" aria-hidden="true"></i> Member profile</h1>
 
-<h4><a href="{{ vm.user.linkedinurl }}" target="_blank">LinkedIn profile</a></h4>
 
-<p>{{ vm.user.bio }}</p>
+<div class="panel panel-info">
+  <div class="media">
+    <a class="pull-left" href="#">
+      <img class="media-object" src="{{ vm.user.image }}" height="100" width="100">
+    </a>
+    <div class="media-body">
+      <!-- <h4 class="media-heading">Media heading</h4> -->
+
+      <h1>{{ vm.user.fullname }} <a href="{{ vm.user.linkedinurl }}" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></h1>
+      <h4>{{ vm.user.jobtitle }}</h4>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<h2><i class="fa fa-quote-left" aria-hidden="true"></i> {{ vm.user.bio }} <i class="fa fa-quote-right" aria-hidden="true"></i></h2>
 
 
 <h3>Gatherings</h3>
 <ul>
   <li ng-repeat="gathering in vm.user.gatherings">
-    <a ui-sref="gatheringsShow({ id: gathering.id })">{{ gathering.name }}</a> ({{ gathering.groupname }})
+    <a ui-sref="gatheringsShow({ id: gathering.id })">{{ gathering.name }}</a><br>{{ gathering.groupname }}<br><br>
   </li>
 </ul>
+</div>
