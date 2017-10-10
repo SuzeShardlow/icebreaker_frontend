@@ -22,12 +22,14 @@ function EventsIndexCtrl($http, $scope, $state, Gathering) {
   vm.newMeetups   = [];
 
   $http
-  .get('http://localhost:3000/api/meetupgroups')
+  // .get('http://localhost:3000/api/meetupgroups')
+  .get('https://intense-stream-50021.herokuapp.com/api/meetupgroups')
   .then(res => vm.meetUpGroups = res.data);
 
   function getEventData() {
     $http
-    .get(`http://localhost:3000/api/events/${vm.groupType}`)
+    // .get(`http://localhost:3000/api/events/${vm.groupType}`)
+    .get(`https://intense-stream-50021.herokuapp.com/api/events/${vm.groupType}`)
     .then(res => {
       vm.meetups = res.data;
       console.log(vm.meetups);
