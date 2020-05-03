@@ -2,7 +2,7 @@
 
 This is the repository for the Icebreaker front end code.  [See the back end code.](https://github.com/SuzeShardlow/icebreaker_backend)
 
-[Try the app!](https://suzeshardlow.com/icebreaker/)
+[Try the app!](https://suze.dev/coding_projects/icebreaker/)
 
 
 ## Introduction
