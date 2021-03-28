@@ -12,20 +12,17 @@ This is the repository for the Icebreaker front end code.  [See the back end cod
 Networking can be a very useful tool.  Many people dread going to events on their own and talking to strangers so I hit upon the idea of creating an app which allows users to browse events and create a pre-meet with other attendees.
 
 
-## Brief
+## Tasks/Competencies/Skills
 
-The requirements for our app were to:
+In this app I demonstrate my capability to:
 
-* Have an internal **Rails API**.
+* Build and use an internal **Rails API**.
 * Use **AngularJS** on the front end.
 * Incorporate at least three **RESTful resources**, one of which represents a user.
 * Have at least one **1:1** relationship and one **1:many** relationship.
-
-We were also given the following optional bonus task:
-
 * **Include data from an external API.**
 
-As mentioned in my [Project Two](https://github.com/SuzeShardlow/skedaddle) readme, I love a challenge and I love bonus tasks.  I love real-time information and I love APIs even more.  So I was really keen to pull live data from the Meetup.com API into my app.
+I love a challenge.  I love real-time information and I love APIs even more.  So I was really keen to pull live data from the Meetup.com API into my app.
 
 I was comfortable with RESTful resources, the CRUD actions and user authentication so I knew I would be able to complete these functions early in the week, freeing up valuable time to focus on pulling in and manipulating the API data.
 
