@@ -2,16 +2,14 @@
 
 This is the repository for the Icebreaker front end code.  [See the back end code.](https://github.com/SuzeShardlow/icebreaker_backend)
 
-[Try the app!](https://suze.dev/coding_projects/icebreaker/)
+[See my other coding projects!](https://suze.dev/coding_projects)
 
 
 ## Introduction
 
-I recently attended a 12-week web development bootcamp.
+**After learning JavaScript and Ruby for a couple of months, I created an AngularJS on Rails app in just seven days.**
 
-**For our final project, we were tasked to create an AngularJS on Rails app in just seven days.**
-
-During the course, my classmates and I were all busy polishing our CVs and knew that networking can be a very useful tool.  Many of my colleagues were dreading going to events on their own and talking to strangers so I hit upon the idea of creating an app which allows users to browse events and create a pre-meet with other attendees.
+Networking can be a very useful tool.  Many people dread going to events on their own and talking to strangers so I hit upon the idea of creating an app which allows users to browse events and create a pre-meet with other attendees.
 
 
 ## Brief
